@@ -1,0 +1,16 @@
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: 5, 100px;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bigger{
+    grid-row: span 2;
+}
