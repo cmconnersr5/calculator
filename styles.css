@@ -1,7 +1,17 @@
+body {
+    background-color: darkslategray;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 600px;
+}
+
 .buttons {
     display: grid;
-    grid-template-columns: repeat(4, 100px);
-    grid-template-rows: 5, 100px;
+    grid-template-columns: repeat(4, 150px);
+    grid-template-rows: repeat(5, 50px);
+    background-color: darkslategray;
+    gap: 5px;
 }
 
 .calculator {
@@ -9,8 +19,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 5px, black;
+    border-style: solid;
+    border-radius: 15px;
+    width: fit-content;
+    padding: 10px;
 }
 
+.display {
+    height: 150px;
+    background-color: white;
+}
 .bigger{
     grid-row: span 2;
 }
