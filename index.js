@@ -1,19 +1,22 @@
-let prevNum = ''
-let currNum = ''
-let selectedOp = ''
+let prevNum = '';
+let currNum = '';
+let selectedOp ='';
 
-//when click a button add to currOP
 let dispCurr = document.querySelector('.currOp');
-let currentNum = document.createTextNode(`${currNum}`);
 let dispPrev = document.querySelector('.prevOp');
 
+//when click a button add to currNum
 const addNum = document.querySelectorAll('.btn');
 addNum.forEach(button => {
     button.addEventListener('click', appendNum);
 });
 
 function appendNum(e){
-    dispCurr.append(`${currNum}`+ e.target.textContent);
+    let current = `${currNum}`+ e.target.textContent;
+    dispCurr.append(current);
+    console.log(current);
+    
+
 };
 
 // when click an operator, change curNum to prevNum and 
@@ -24,48 +27,49 @@ operator.forEach(button => {
 });
 
 function selectOp(e){
-    let prevNum = dispCurr.textContent
-    let selectedOp = e.target.textContent;
+    let prevNum = dispCurr.textContent;
+    selectedOp = e.target.outerText;
+    console.log(selectedOp)
     dispPrev.append(prevNum, selectedOp);
     dispCurr.textContent= '';
-    return selectedOp;
+    return (selectedOp,prevNum)
 }
 
 
+//add = functionality and dislpay total
+let equal = document.getElementById('equal');
+equal.addEventListener('click', operate);
 
 
-
-
-
-
-
-function add(){
-    num1+num2
-}
-
-function sub(){
-    num1-num2
-}
-
-function mult(){
-    num1*num2
-}
-
-function divide(){
-    num1/num2
+function add(num1,num2){
+    return num1+num2;
 };
 
-function operate(selectedOp, num1,num2){
+function sub(num1,num2){
+    return num1-num2;
+};
+
+function mult(num1,num2){
+  return num1*num2;
+};
+
+function divide(num1,num2){
+  return num1/num2;
+};
+
+// assign nums from display and do the math
+function operate(){
+    let num1 = parseFloat(dispPrev.textContent.slice(0,-1))
+    let num2 = parseFloat(dispCurr.textContent)
+    
     if (selectedOp === '+'){
-        return add(num1,num2);
+        console.log( add(num1,num2));
     } else if (selectedOp === '-'){
-        return sub(num1,num2);
+        console.log( sub(num1,num2));
     } else if (selectedOp === '*'){
-        return mult(num1,num2);
+        console.log( mult(num1,num2));
     } else if (selectedOp === '/'){
-        return divide(num1,num2);
+        console.log( divide(num1,num2));
     }
 
 }
-
-operate(5,2);
