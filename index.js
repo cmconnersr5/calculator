@@ -1,11 +1,12 @@
 let prevNum = '';
 let currNum = '';
 let selectedOp ='';
+let result = '';
 
 let dispCurr = document.querySelector('.currOp');
 let dispPrev = document.querySelector('.prevOp');
 
-//when click a button add to currNum
+//click a button and add value to currNum
 const addNum = document.querySelectorAll('.btn');
 addNum.forEach(button => {
     button.addEventListener('click', appendNum);
@@ -36,40 +37,50 @@ function selectOp(e){
 }
 
 
-//add = functionality and dislpay total
+//add = functionality and display total
 let equal = document.getElementById('equal');
 equal.addEventListener('click', operate);
 
-
-function add(num1,num2){
-    return num1+num2;
-};
-
-function sub(num1,num2){
-    return num1-num2;
-};
-
-function mult(num1,num2){
-  return num1*num2;
-};
-
-function divide(num1,num2){
-  return num1/num2;
-};
 
 // assign nums from display and do the math
 function operate(){
     let num1 = parseFloat(dispPrev.textContent.slice(0,-1))
     let num2 = parseFloat(dispCurr.textContent)
+    let prevNum = dispCurr.textContent;
+    dispCurr.textContent = '';
+    dispPrev.append(prevNum)
+
+
     
     if (selectedOp === '+'){
-        console.log( add(num1,num2));
+        add(num1,num2);
     } else if (selectedOp === '-'){
-        console.log( sub(num1,num2));
+        sub(num1,num2);
     } else if (selectedOp === '*'){
-        console.log( mult(num1,num2));
+        mult(num1,num2);
     } else if (selectedOp === '/'){
-        console.log( divide(num1,num2));
+        divide(num1,num2);
     }
 
 }
+
+
+function add(num1,num2){
+    result = num1+num2;
+    dispCurr.append(result)
+};
+
+function sub(num1,num2){
+    result = num1-num2;
+    dispCurr.append(result)
+};
+
+function mult(num1,num2){
+  result = num1*num2;
+  dispCurr.append(result)
+};
+
+function divide(num1,num2){
+  result = num1/num2;
+  dispCurr.append(result)
+};
