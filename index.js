@@ -64,23 +64,26 @@ function operate(){
 
 }
 
-
 function add(num1,num2){
     result = num1+num2;
+    dispPrev.textContent = '';
     dispCurr.append(result)
 };
 
 function sub(num1,num2){
     result = num1-num2;
+    dispPrev.textContent = '';
     dispCurr.append(result)
 };
 
 function mult(num1,num2){
   result = num1*num2;
+  dispPrev.textContent = '';
   dispCurr.append(result)
 };
 
 function divide(num1,num2){
   result = num1/num2;
+  dispPrev.textContent = '';
   dispCurr.append(result)
 };
