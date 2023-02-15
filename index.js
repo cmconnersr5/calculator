@@ -87,6 +87,7 @@ function divide(num1,num2){
         dispCurr.append(result);
     };
 
+
 //clears the screen
 let clear = document.getElementById('clear');
 clear.addEventListener('click', clearScreen);
@@ -97,6 +98,7 @@ function clearScreen(){
 
 }
 
+
 // deletes previous entry
 let deleteBtn = document.getElementById('delete')
 deleteBtn.addEventListener('click', deleteIt)
@@ -104,5 +106,16 @@ deleteBtn.addEventListener('click', deleteIt)
 function deleteIt(){
     let newDisp = dispCurr.textContent.slice(0,-1);
     dispCurr.textContent=''
+    dispCurr.append(newDisp);
+}
+
+
+//add decimal functionality
+let deciBtn = document.getElementById('decimal');
+deciBtn.addEventListener('click', addDec);
+
+function addDec(){
+    let newDisp = dispCurr.textContent.concat('.')
+    dispCurr.textContent = '';
     dispCurr.append(newDisp);
 }
